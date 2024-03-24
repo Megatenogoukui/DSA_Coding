@@ -1,25 +1,25 @@
-from collections import deque
+def valid_paranthesis(string) :
+    bracket_mapping = {"(" : ")" , "[" : "]" , "{" : "}"}
+    open_params = ["{" , "(" , "["]
 
-def isValid(str1):
-    bracketMapping = {"(":")","[":"]","{":"}"}
-    openParams = set(["(" , "[" , "{"])
     stack = []
-    for s in str1:
-        if s in openParams:
+
+    for s in string:
+        if s in open_params:
             stack.append(s)
-        elif stack and s == bracketMapping[stack[-1]]:
+        elif stack and s == bracket_mapping[stack[-1]]:
             stack.pop()
-        else:
+        else :
             return False
     return stack == []
-    
-    
 
 
-# Driver COde 
 
-str1 = "{[]}"
-if(isValid(str1)):
-    print("Valid String")
-else:
-    print("Invalid String")
+# Driver Code
+
+
+result = valid_paranthesis("([]))")
+if result :
+    print("Valid Paranthesis")
+else : 
+    print("Invalid Paranthesis")
